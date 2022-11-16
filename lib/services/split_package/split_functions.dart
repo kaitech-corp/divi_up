@@ -17,11 +17,10 @@ class SplitFunctions {
     splitList.value[index] = amount;
   }
 
-  Widget formatTotal (ValueNotifier<List<double>> splitList, int index, String type){
-    switch (type){
-      case 'Even Split':
-        return Text('\$${splitList.value[index].toStringAsFixed(2)}');
-      default:
+  Widget formatTotal (ValueNotifier<List<double>> splitList, int index, bool isEvenSplit){
+    if (isEvenSplit) {
+      return Text('\$${splitList.value[index].toStringAsFixed(2)}');
+    } else {
         return const Text('0.0');
     }
   }
